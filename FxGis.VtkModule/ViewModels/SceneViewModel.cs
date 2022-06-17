@@ -1,4 +1,5 @@
 ﻿using FxGis.App.Core.Tool;
+using Prism.Events;
 using Prism.Ioc;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ namespace FxGis.VtkModule.ViewModels
 {
     public class SceneViewModel : BaseViewModel
     {
-        public SceneViewModel(IContainerExtension container) : base(container)
+        public SceneViewModel(IContainerExtension container, IEventAggregator eventAggregator) : base(container, eventAggregator)
         {
         }
     }

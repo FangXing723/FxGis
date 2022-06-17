@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using Prism.Events;
+using Prism.Ioc;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -15,21 +16,27 @@ namespace FxGis.App.Core.Tool
         /// <summary>
         /// Prism.IOC容器
         /// </summary>
-        internal  IContainerExtension _container;
+        public IContainerExtension _container { get; private set; }
+        /// <summary>
+        /// Prism.事件聚合器
+        /// </summary>
+        public IEventAggregator _eventAggregator { get; private set; }
+
         /// <summary>
         /// 地图工具
+        /// 工具在最开始注入到Prism的IOC容器
         /// </summary>
-        public IMapTool _mapTool;
-        
+        public IMapTool MapTool { get; private set; }
 
 
-        public BaseViewModel(IContainerExtension container)
+
+        public BaseViewModel(IContainerExtension container, IEventAggregator eventAggregator)
         {
-            //获取IOC容器
             _container = container;
+            _eventAggregator = eventAggregator;
 
             //通过IOC获取注册的MapTool
-            _mapTool = (IMapTool)_container.Resolve(typeof(IMapTool));
+            MapTool = (IMapTool)_container.Resolve(typeof(IMapTool));
         }
 
     }

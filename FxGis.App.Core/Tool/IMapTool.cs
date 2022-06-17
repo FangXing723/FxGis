@@ -10,5 +10,23 @@ namespace FxGis.App.Core.Tool
     public interface IMapTool
     {
         void AddShapeFile(string filePath);
+
+
+
+
+        bool ExistLayer(string layerName);
+
+        bool RemoveLayer(string layerName);
+
+        void SetLayerVisible(string layerName);
+
+        void GetLayerIndex(string layerName);
+
+        void MoveLayer(int index);
+
+        void MoveLayerUp();
+
+        void MoveLayerDown();
+
     }
 }

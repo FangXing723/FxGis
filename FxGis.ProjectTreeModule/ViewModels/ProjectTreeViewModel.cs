@@ -1,5 +1,6 @@
 ﻿using FxGis.App.Core.Tool;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Ioc;
 using Prism.Mvvm;
 using System;
@@ -10,13 +11,13 @@ namespace FxGis.ProjectTreeModule.ViewModels
 {
     public class ProjectTreeViewModel : BaseViewModel
     {
-        public ProjectTreeViewModel(IContainerExtension container) : base(container)
+        public ProjectTreeViewModel(IContainerExtension container, IEventAggregator eventAggregator) : base(container, eventAggregator)
         {
-            RegisterCommand();
+            InitCommand();
         }
 
 
-        private void RegisterCommand()
+        private void InitCommand()
         {
             ProjectTreeTestCommand = new DelegateCommand(() => ProjectTreeTest());
         }
@@ -26,9 +27,9 @@ namespace FxGis.ProjectTreeModule.ViewModels
 
         private void ProjectTreeTest()
         {
-            if (_mapTool != null)
+            if (MapTool != null)
             {
-                _mapTool.AddShapeFile("");
+                MapTool.AddShapeFile("");
             }
             else
             {

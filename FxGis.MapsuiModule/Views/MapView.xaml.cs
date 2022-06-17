@@ -1,6 +1,8 @@
-﻿using FxGis.MapsuiModule.ViewModels;
+﻿using FxGis.MapsuiModule.Tool;
+using FxGis.MapsuiModule.ViewModels;
 using Mapsui.UI.Wpf;
 using Prism.Common;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,28 +25,20 @@ namespace FxGis.MapsuiModule.Views
     /// </summary>
     public partial class MapView : UserControl
     {
-        public MapView()
+        public MapView(IEventAggregator ea)
         {
             InitializeComponent();
 
-            ///// Prisim提供的View视图部分的Context的PropertyChanged事件机制
-            ///// 通过这个机制可以将View中的数据对象给到其绑定的VM中，例如将View中创建的Mapsui.MapControl给到其VM中，用作地图控件的封装
-            //RegionContext.GetObservableContext(this.mapsuiMapControl).PropertyChanged += MapsuiMapControl_PropertyChanged;
-
-
-
+            //将View的内容给到VM
+            //Prism框架构建顺序：View→ViewModel
             (DataContext as MapViewModel)._mapControl = mapsuiMapControl;
-
+            //增加一个默认的OSM底图
             mapsuiMapControl?.Map?.Layers.Add(Mapsui.Utilities.OpenStreetMap.CreateTileLayer());
+
+            //Prism的订阅发布机制，用作地图工具的操作对象（地图对象）的注入
+            //当View初始化后（及MapControl初始化后），将MapControl发布，由地图工具（具体实现类）进行订阅，然后接收被工具操作的MapControl对象，完成工具的初始化
+            ea.GetEvent<MapPubSubEvent>().Publish(mapsuiMapControl);
         }
 
-        private void MapsuiMapControl_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            var context = (ObservableObject<object>)sender;
-            var mapControl_InView = (MapControl)context.Value;
-            (DataContext as MapViewModel)._mapControl = mapControl_InView;
-
-
-        }
     }
 }
