@@ -22,7 +22,7 @@
         </ContentControl>
 
         <ContentControl DockPanel.Dock="Left">
-            <ContentControl prism:RegionManager.RegionName="ProjectTreeRegion" />
+            <ContentControl prism:RegionManager.RegionName="TreeRegion" />
         </ContentControl>
 
         <TabControl>

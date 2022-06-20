@@ -1,4 +1,6 @@
 ﻿using FxGis.App.Core.Tool;
+using FxGis.ProjectTreeModule.Model;
+using FxGis.ProjectTreeModule.Tool;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Ioc;
@@ -11,15 +13,23 @@ namespace FxGis.ProjectTreeModule.ViewModels
 {
     public class ProjectTreeViewModel : BaseViewModel
     {
+        public Project Project { get; set; } = new Project();
+       
+
         public ProjectTreeViewModel(IContainerExtension container, IEventAggregator eventAggregator) : base(container, eventAggregator)
         {
+            _eventAggregator.GetEvent<TreeProjectPubSubEvent>().Publish(Project);
+            
             InitCommand();
+
         }
 
 
         private void InitCommand()
         {
             ProjectTreeTestCommand = new DelegateCommand(() => ProjectTreeTest());
+
+
         }
 
 

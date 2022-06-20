@@ -56,8 +56,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\ProjectDataTypeEnum.cs" />
+    <Compile Include="Model\BaseProjectData.cs" />
+    <Compile Include="Model\DemData.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\ShpData.cs" />
+    <Compile Include="Model\TileData.cs" />
     <Compile Include="ProjectTreeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tool\TreeProjectPubSubEvent.cs" />
+    <Compile Include="Tool\TreeToolImpl.cs" />
     <Compile Include="ViewModels\ProjectTreeViewModel.cs" />
     <Compile Include="Views\ProjectTreeView.xaml.cs">
       <DependentUpon>ProjectTreeView.xaml</DependentUpon>
@@ -72,9 +80,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tool\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FxGis.App.Core\FxGis.App.Core.csproj">
       <Project>{c28b9266-b431-4632-8828-2e2ad37fbd7c}</Project>

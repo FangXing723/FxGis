@@ -14,8 +14,6 @@ namespace FxGis.MapsuiModule.ViewModels
     public class MapViewModel : BaseViewModel
     {
 
-        internal MapControl _mapControl;
-
         public MapViewModel(IContainerExtension container, IEventAggregator eventAggregator) : base(container, eventAggregator)
         {
             InitCommand();
@@ -35,7 +33,6 @@ namespace FxGis.MapsuiModule.ViewModels
             MapTool.RemoveLayer("OpenStreetMap");
 
             System.Diagnostics.Debug.WriteLine("hello!");
-            System.Diagnostics.Debug.WriteLine("_mapControl:" + (_mapControl == null ? "未创建" : "已创建"));
         }
     }
 }

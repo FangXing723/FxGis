@@ -142,6 +142,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FxGis.App.Core\FxGis.App.Core.csproj">
+      <Project>{c28b9266-b431-4632-8828-2e2ad37fbd7c}</Project>
+      <Name>FxGis.App.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FxGis.MapsuiModule\FxGis.MapsuiModule.csproj">
       <Project>{17979dd1-cacb-45ad-bb41-2dc50c049b34}</Project>
       <Name>FxGis.MapsuiModule</Name>

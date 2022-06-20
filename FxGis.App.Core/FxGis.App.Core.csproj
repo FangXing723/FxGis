@@ -68,6 +68,7 @@
     <Compile Include="Tool\IDbTool.cs" />
     <Compile Include="Tool\IMapTool.cs" />
     <Compile Include="Tool\ISceneTool.cs" />
+    <Compile Include="Tool\ITreeTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

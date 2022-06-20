@@ -28,6 +28,11 @@ namespace FxGis.App.Core.Tool
         /// </summary>
         public IMapTool MapTool { get; private set; }
 
+        /// <summary>
+        /// 工程目录树工具
+        /// </summary>
+        public ITreeTool TreeTool { get; private set; }
+
 
 
         public BaseViewModel(IContainerExtension container, IEventAggregator eventAggregator)
@@ -36,7 +41,11 @@ namespace FxGis.App.Core.Tool
             _eventAggregator = eventAggregator;
 
             //通过IOC获取注册的MapTool
+            TreeTool = (ITreeTool)_container.Resolve(typeof(ITreeTool));
             MapTool = (IMapTool)_container.Resolve(typeof(IMapTool));
+
+            System.Diagnostics.Debug.WriteLine(this.GetType().ToString());
+
         }
 
     }
