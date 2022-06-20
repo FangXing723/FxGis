@@ -13,7 +13,17 @@
     mc:Ignorable="d">
     <DockPanel>
         <ContentControl DockPanel.Dock="Top">
-            <Label Background="Red">工具栏</Label>
+            <StackPanel Orientation="Horizontal">
+                <Label Background="Red">工具栏区域（后面构建此模块的Mudule），目标开发一些数据转换工具，例如连接DB展点等</Label>
+                <Button>工具xxx</Button>
+                <Button>工具xxx</Button>
+                <Button>工具xxx</Button>
+                <Button>工具xxx</Button>
+                <Button>工具xxx</Button>
+                <Button>工具xxx</Button>
+                <Button>工具xxx</Button>
+                <Button>工具xxx</Button>
+            </StackPanel>
         </ContentControl>
 
 

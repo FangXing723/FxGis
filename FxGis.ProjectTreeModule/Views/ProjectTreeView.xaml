@@ -5,10 +5,56 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FxGis.ProjectTreeModule.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:FxGis.ProjectTreeModule.Model"
     xmlns:prism="http://prismlibrary.com/"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <!--  Shp数据目录样式  -->
+        <HierarchicalDataTemplate DataType="{x:Type model:BaseProjectData}">
+            <StackPanel Height="20" Orientation="Horizontal">
+
+                <!--<Image
+                    Width="16"
+                    Height="16"
+                    Source="{Binding ImagePath}" />-->
+
+                <TextBlock
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="{Binding DataName}" />
+
+                <StackPanel.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            Command=""
+                            CommandParameter="{Binding}"
+                            Header="View In Map" />
+                        <MenuItem
+                            Command=""
+                            CommandParameter="{Binding}"
+                            Header="View In Scene" />
+                        <MenuItem
+                            Command=""
+                            CommandParameter="{Binding}"
+                            Header="Remove" />
+                    </ContextMenu>
+                </StackPanel.ContextMenu>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+
+    </UserControl.Resources>
     <Grid>
-        <Button Command="{Binding ProjectTreeTestCommand}" Content="ProjectTreeTest" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TreeView Grid.Row="0" ItemsSource="{Binding Project.ProjectDatas}" />
+        <StackPanel Grid.Row="1">
+            <Button Command="{Binding ProjectTreeTestCommand}" Content="ProjectTreeTest" />
+            <Button Command="{Binding AddShpCommand}" Content="AddShp" />
+            <Button Command="{Binding AddDEMCommand}" Content="AddDEM" />
+            <Button Command="{Binding AddTileCommand}" Content="AddTile" />
+        </StackPanel>
     </Grid>
 </UserControl>

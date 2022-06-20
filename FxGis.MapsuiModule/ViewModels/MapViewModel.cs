@@ -19,8 +19,6 @@ namespace FxGis.MapsuiModule.ViewModels
             InitCommand();
         }
 
-
-
         public DelegateCommand MapTestCommand { get; set; }
 
         private void InitCommand()
