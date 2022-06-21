@@ -9,6 +9,8 @@ namespace FxGis.ProjectTreeModule.Model
 {
     public class ShpData : BaseProjectData
     {
+        public const string FileFilter = "shape files(*.shp)|*.shp";
+
         public override ProjectDataTypeEnum DataType => ProjectDataTypeEnum.SHAPE;
     }
 }

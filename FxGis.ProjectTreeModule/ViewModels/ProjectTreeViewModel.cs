@@ -43,13 +43,11 @@ namespace FxGis.ProjectTreeModule.ViewModels
         public DelegateCommand AddDEMCommand { get; set; }
         public DelegateCommand AddTileCommand { get; set; }
 
-
         private void AddShp()
         {
             F.OpenFileDialog ofd = new F.OpenFileDialog
             {
-                //FileName = "",
-                //Filter = "",
+                Filter = ShpData.FileFilter,
             };
             if (ofd.ShowDialog() != F.DialogResult.OK)
             { return; }
@@ -57,20 +55,18 @@ namespace FxGis.ProjectTreeModule.ViewModels
             var layerName = MapTool.AddShp(ofd.FileName, "");
             TreeTool.AddShp(ofd.FileName, layerName);
         }
-
         private void AddDEM()
         {
             TreeTool.AddDEM("");
         }
-
         private void AddTile()
         {
             TreeTool.AddTile("");
         }
 
+
         public DelegateCommand<BaseProjectData> ViewInMapCommand { get; set; }
         public DelegateCommand<BaseProjectData> ZoomToLayerCommand { get; set; }
-
         public DelegateCommand<BaseProjectData> RemoveCommand { get; set; }
         private void ViewInMap(BaseProjectData data)
         {
@@ -83,12 +79,10 @@ namespace FxGis.ProjectTreeModule.ViewModels
                 MapTool.AddShp(data.DataPath, data.DataName);
             }
         }
-
         private void ZoomToLayer(BaseProjectData data)
         {
             MapTool.ZoomToLayer(data.DataName);
         }
-
         private void Remove(BaseProjectData data)
         {
             MapTool.RemoveLayer(data.DataName);
