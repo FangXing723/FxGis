@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="clr-namespace:FxGis.ProjectTreeModule.Model"
     xmlns:prism="http://prismlibrary.com/"
+    x:Name="userControl"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -25,17 +26,19 @@
                     Text="{Binding DataName}" />
 
                 <StackPanel.ContextMenu>
-                    <ContextMenu>
+                    <ContextMenu DataContext="{Binding Path=PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
                         <MenuItem
-                            Command=""
+                            Command="{Binding DataContext.ViewInMapCommand, Source={x:Reference userControl}}"
                             CommandParameter="{Binding}"
                             Header="View In Map" />
                         <MenuItem
-                            Command=""
+                            Command="{Binding DataContext.ZoomToLayerCommand, Source={x:Reference userControl}}"
                             CommandParameter="{Binding}"
-                            Header="View In Scene" />
+                            Header="Zoom To Layer" />
+                        <MenuItem Header="View In Scene" />
+                        <MenuItem Header="View Property" />
                         <MenuItem
-                            Command=""
+                            Command="{Binding DataContext.RemoveCommand, Source={x:Reference userControl}}"
                             CommandParameter="{Binding}"
                             Header="Remove" />
                     </ContextMenu>
@@ -51,7 +54,6 @@
         </Grid.RowDefinitions>
         <TreeView Grid.Row="0" ItemsSource="{Binding Project.ProjectDatas}" />
         <StackPanel Grid.Row="1">
-            <Button Command="{Binding ProjectTreeTestCommand}" Content="ProjectTreeTest" />
             <Button Command="{Binding AddShpCommand}" Content="AddShp" />
             <Button Command="{Binding AddDEMCommand}" Content="AddDEM" />
             <Button Command="{Binding AddTileCommand}" Content="AddTile" />

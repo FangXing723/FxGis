@@ -8,7 +8,7 @@ namespace FxGis.App.Core.Tool
 {
     public interface ITreeTool
     {
-        string AddShp(string shpDataPath);
+        string AddShp(string shpPath, string dataName);
 
         string AddDEM(string demDataPath);
 

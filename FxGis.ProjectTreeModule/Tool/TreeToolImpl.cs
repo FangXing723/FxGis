@@ -34,12 +34,12 @@ namespace FxGis.ProjectTreeModule.Tool
             return dem.DataName;
         }
 
-        public string AddShp(string shpDataPath)
+        public string AddShp(string shpPath, string dataName)
         {
             ShpData shp = new ShpData
             {
-                DataName = "SHP数据",
-                DataPath = "/xxx/a.shp",
+                DataName = dataName,
+                DataPath = shpPath,
                 IsChecked = true,
             };
 
@@ -74,7 +74,7 @@ namespace FxGis.ProjectTreeModule.Tool
 
         public bool RemoveData(string dataName)
         {
-           return _project.ProjectDatas.Remove(_project.ProjectDatas.Where(d => d.DataName == dataName).First());
+            return _project.ProjectDatas.Remove(_project.ProjectDatas.Where(d => d.DataName == dataName).First());
         }
     }
 }

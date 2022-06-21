@@ -9,7 +9,7 @@ namespace FxGis.App.Core.Tool
     /// </summary>
     public interface IMapTool
     {
-        void AddShapeFile(string filePath);
+        string AddShp(string filePath, string layerName = "");
 
 
 
@@ -27,6 +27,10 @@ namespace FxGis.App.Core.Tool
         void MoveLayerUp();
 
         void MoveLayerDown();
+
+        void ZoomToLayer(string layerName);
+
+        void ZoomToFull();
 
     }
 }
