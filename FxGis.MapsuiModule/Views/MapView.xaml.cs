@@ -33,7 +33,7 @@ namespace FxGis.MapsuiModule.Views
             //Prism框架构建顺序：View→ViewModel
             //(DataContext as MapViewModel)._mapControl = mapsuiMapControl;
             //增加一个默认的OSM底图
-            mapsuiMapControl?.Map?.Layers.Add(Mapsui.Utilities.OpenStreetMap.CreateTileLayer());
+            //mapsuiMapControl?.Map?.Layers.Add(Mapsui.Utilities.OpenStreetMap.CreateTileLayer());
 
             //Prism的订阅发布机制，用作地图工具的操作对象（地图对象）的注入
             //当View初始化后（及MapControl初始化后），将MapControl发布，由地图工具（具体实现类）进行订阅，然后接收被工具操作的MapControl对象，完成工具的初始化

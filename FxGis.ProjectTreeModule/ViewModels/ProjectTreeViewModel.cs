@@ -31,18 +31,15 @@ namespace FxGis.ProjectTreeModule.ViewModels
         {
             AddShpCommand = new DelegateCommand(() => AddShp());
             AddDEMCommand = new DelegateCommand(() => AddDEM());
-            AddTileCommand = new DelegateCommand(() => AddTile());
-
             ViewInMapCommand = new DelegateCommand<BaseProjectData>((data) => ViewInMap(data));
-            ZoomToLayerCommand = new DelegateCommand<BaseProjectData>((data) => ZoomToLayer(data));
             RemoveCommand = new DelegateCommand<BaseProjectData>((data) => Remove(data));
         }
 
 
         public DelegateCommand AddShpCommand { get; set; }
         public DelegateCommand AddDEMCommand { get; set; }
-        public DelegateCommand AddTileCommand { get; set; }
-
+        public DelegateCommand<BaseProjectData> ViewInMapCommand { get; set; }
+        public DelegateCommand<BaseProjectData> RemoveCommand { get; set; }
         private void AddShp()
         {
             F.OpenFileDialog ofd = new F.OpenFileDialog
@@ -59,15 +56,6 @@ namespace FxGis.ProjectTreeModule.ViewModels
         {
             TreeTool.AddDEM("");
         }
-        private void AddTile()
-        {
-            TreeTool.AddTile("");
-        }
-
-
-        public DelegateCommand<BaseProjectData> ViewInMapCommand { get; set; }
-        public DelegateCommand<BaseProjectData> ZoomToLayerCommand { get; set; }
-        public DelegateCommand<BaseProjectData> RemoveCommand { get; set; }
         private void ViewInMap(BaseProjectData data)
         {
             if (MapTool.ExistLayer(data.DataName))
@@ -78,10 +66,6 @@ namespace FxGis.ProjectTreeModule.ViewModels
             {
                 MapTool.AddShp(data.DataPath, data.DataName);
             }
-        }
-        private void ZoomToLayer(BaseProjectData data)
-        {
-            MapTool.ZoomToLayer(data.DataName);
         }
         private void Remove(BaseProjectData data)
         {

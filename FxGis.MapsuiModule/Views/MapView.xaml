@@ -14,18 +14,37 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl
+            Grid.Row="0"
+            Grid.Column="0"
+            prism:RegionManager.RegionName="MapToolRegion" />
 
         <mapsui:MapControl
             Name="mapsuiMapControl"
             Grid.Row="0"
-            Background="Black" />
+            Grid.Column="1" />
+
+        <ContentControl
+            Grid.Row="0"
+            Grid.Column="2"
+            prism:RegionManager.RegionName="MapTreeRegion" />
 
         <StackPanel
             Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
             Background="Pink"
             Orientation="Horizontal">
             <TextBox>地图模块状态条</TextBox>
             <Button Command="{Binding MapTestCommand}" Content="TestButtonInMap" />
         </StackPanel>
+
+
     </Grid>
 </UserControl>

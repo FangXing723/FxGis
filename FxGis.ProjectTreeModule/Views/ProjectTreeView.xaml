@@ -31,10 +31,7 @@
                             Command="{Binding DataContext.ViewInMapCommand, Source={x:Reference userControl}}"
                             CommandParameter="{Binding}"
                             Header="View In Map" />
-                        <MenuItem
-                            Command="{Binding DataContext.ZoomToLayerCommand, Source={x:Reference userControl}}"
-                            CommandParameter="{Binding}"
-                            Header="Zoom To Layer" />
+
                         <MenuItem Header="View In Scene" />
                         <MenuItem Header="View Property" />
                         <MenuItem
@@ -56,7 +53,6 @@
         <StackPanel Grid.Row="1">
             <Button Command="{Binding AddShpCommand}" Content="AddShp" />
             <Button Command="{Binding AddDEMCommand}" Content="AddDEM" />
-            <Button Command="{Binding AddTileCommand}" Content="AddTile" />
         </StackPanel>
     </Grid>
 </UserControl>

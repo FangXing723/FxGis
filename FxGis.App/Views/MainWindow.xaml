@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:FxGis.App.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
-    Title="MainWindow"
+    Title="FxGis"
     Width="800"
     Height="450"
     prism:ViewModelLocator.AutoWireViewModel="True"

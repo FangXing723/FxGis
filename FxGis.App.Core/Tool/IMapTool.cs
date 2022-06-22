@@ -11,22 +11,19 @@ namespace FxGis.App.Core.Tool
     {
         string AddShp(string filePath, string layerName = "");
 
-
-
+        string AddTile(string tileName);
 
         bool ExistLayer(string layerName);
 
         bool RemoveLayer(string layerName);
 
-        void SetLayerVisible(string layerName);
+        void SetLayerVisiblity(string layerName, bool visibility);
 
-        void GetLayerIndex(string layerName);
+        int GetLayerIndex(string layerName);
 
-        void MoveLayer(int index);
+        void MoveLayerUp(string layerName);
 
-        void MoveLayerUp();
-
-        void MoveLayerDown();
+        void MoveLayerDown(string layerName);
 
         void ZoomToLayer(string layerName);
 

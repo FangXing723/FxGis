@@ -12,12 +12,16 @@ namespace FxGis.MapsuiModule
 {
     public class MapsuiModule : IModule
     {
-        public static string RegionName = "MapRegion";
+        public static string MapRegionName = "MapRegion";
+        public static string MapTreeRegionName = "MapTreeRegion";
+        public static string MapToolRegionName = "MapToolRegion";
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
-            regionManager.RegisterViewWithRegion(RegionName, typeof(MapView));
+            regionManager.RegisterViewWithRegion(MapRegionName, typeof(MapView));
+            regionManager.RegisterViewWithRegion(MapTreeRegionName, typeof(MapTreeView));
+            regionManager.RegisterViewWithRegion(MapToolRegionName, typeof(MapToolView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
