@@ -31,7 +31,7 @@ namespace FxGis.MapsuiModule.Views
 
             //将View的内容给到VM
             //Prism框架构建顺序：View→ViewModel
-            //(DataContext as MapViewModel)._mapControl = mapsuiMapControl;
+            (DataContext as MapViewModel).MapControl = mapsuiMapControl;
             //增加一个默认的OSM底图
             //mapsuiMapControl?.Map?.Layers.Add(Mapsui.Utilities.OpenStreetMap.CreateTileLayer());
 

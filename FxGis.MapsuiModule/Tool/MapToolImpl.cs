@@ -1,6 +1,7 @@
 ﻿using BruTile.Predefined;
 using FxGis.App.Core.Tool;
 using FxGis.MapsuiModule.Model;
+using Mapsui;
 using Mapsui.Geometries;
 using Mapsui.Layers;
 using Mapsui.Providers;
@@ -37,10 +38,6 @@ namespace FxGis.MapsuiModule.Tool
         }
 
 
-
-
-
-
         public string AddShp(string filePath, string layerName = "")
         {
             //System.Diagnostics.Debug.WriteLine($"MapToolImpl.AddShapeFile({filePath})");
@@ -67,13 +64,12 @@ namespace FxGis.MapsuiModule.Tool
 
             return layerName;
         }
-
         public string AddTile(string tileName)
         {
             KnownTileSource source;
             try
             {
-                source=(KnownTileSource)Enum.Parse(typeof(KnownTileSource), tileName);
+                source = (KnownTileSource)Enum.Parse(typeof(KnownTileSource), tileName);
             }
             catch
             {
@@ -100,7 +96,6 @@ namespace FxGis.MapsuiModule.Tool
             return name;
 
         }
-
         public bool ExistLayer(string layerName)
         {
             if (_layers.FindLayer(layerName).Count() > 0)
@@ -110,12 +105,10 @@ namespace FxGis.MapsuiModule.Tool
 
             return false;
         }
-
         public bool RemoveLayer(string layerName)
         {
             return _mapControl.Map.Layers.Remove(l => l.Name == layerName);
         }
-
         public int GetLayerIndex(string layerName)
         {
             for (int i = 0; i < _layers.Count; i++)
@@ -126,7 +119,6 @@ namespace FxGis.MapsuiModule.Tool
 
             return -1;
         }
-
         public void MoveLayerUp(string layerName)
         {
             ILayer layer = GetLayer(layerName);
@@ -142,7 +134,6 @@ namespace FxGis.MapsuiModule.Tool
             }
 
         }
-
         public void MoveLayerDown(string layerName)
         {
             ILayer layer = GetLayer(layerName);
@@ -160,8 +151,6 @@ namespace FxGis.MapsuiModule.Tool
             //MapTree中绑定的可观察的图层信息集合移动
             LayerInfos.Move(curIndex, curIndex + 1);
         }
-
-
         public void ZoomToLayer(string layerName)
         {
             ILayer layer = GetLayer(layerName);
@@ -173,15 +162,39 @@ namespace FxGis.MapsuiModule.Tool
             BoundingBox envelop = layer.Envelope;
             ZoomToBoundingBox(envelop);
         }
-
         public void ZoomToFull()
         {
             BoundingBox mapEnvelope = _mapControl.Map.Envelope;
             ZoomToBoundingBox(mapEnvelope);
         }
+        public void ZoomIn()
+        {
+            BoundingBox curEnvelope = _mapControl.Map.Envelope;
+            double xSpan = (curEnvelope.MaxX - curEnvelope.MinX)*0.1;
+            double ySpan = (curEnvelope.MaxY - curEnvelope.MinY)*0.1;
 
+            BoundingBox newEnvelope = new BoundingBox(
+                curEnvelope.MinX + xSpan, 
+                curEnvelope.MinY + ySpan, 
+                curEnvelope.MaxX - xSpan, 
+                curEnvelope.MaxY - ySpan);
 
+            ZoomToBoundingBox(newEnvelope);
+        }
+        public void ZoomOut()
+        {
+            BoundingBox curEnvelope = _mapControl.Map.Envelope;
+            double xSpan = (curEnvelope.MaxX - curEnvelope.MinX) * 0.1;
+            double ySpan = (curEnvelope.MaxY - curEnvelope.MinY) * 0.1;
 
+            BoundingBox newEnvelope = new BoundingBox(
+                curEnvelope.MinX - xSpan,
+                curEnvelope.MinY - ySpan,
+                curEnvelope.MaxX + xSpan,
+                curEnvelope.MaxY + ySpan);
+
+            ZoomToBoundingBox(newEnvelope);
+        }
 
         private void _layers_LayerAdded(ILayer layer)
         {
@@ -195,7 +208,6 @@ namespace FxGis.MapsuiModule.Tool
             };
             LayerInfos.Add(layerInfo);
         }
-
         private void _layers_LayerRemoved(ILayer layer)
         {
             int currentLayerCount = _layers.Count;
@@ -213,15 +225,12 @@ namespace FxGis.MapsuiModule.Tool
             }
 
         }
-
         private ILayer GetLayer(string layerName)
         {
             ILayer layer = null;
             layer = _layers.FirstOrDefault(l => l.Name == layerName);
             return layer;
         }
-
-
         /// <summary>
         /// 缩放至指定包围盒
         /// </summary>
@@ -233,7 +242,6 @@ namespace FxGis.MapsuiModule.Tool
 
             _mapControl.ZoomToBox(startPoint, endPoint);
         }
-
 
     }
 }

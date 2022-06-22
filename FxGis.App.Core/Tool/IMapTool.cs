@@ -27,5 +27,7 @@ namespace FxGis.App.Core.Tool
 
         void ZoomToFull();
 
+        void ZoomIn();
+        void ZoomOut();
     }
 }

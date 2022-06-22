@@ -14,10 +14,33 @@ namespace FxGis.MapsuiModule.ViewModels
     public class MapViewModel : BaseViewModel
     {
 
+        private MapControl _mapControl;
+
+        public MapControl MapControl
+        {
+            get => _mapControl;
+            set
+            {
+                _mapControl = value;
+                _mapControl.MouseMove += _mapControl_MouseMove;
+
+            }
+        }
+        public string MousePositionInfo { get; set; }
+
         public MapViewModel(IContainerExtension container, IEventAggregator eventAggregator) : base(container, eventAggregator)
         {
             InitCommand();
         }
+
+        private void _mapControl_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            var screenPosition = e.GetPosition(_mapControl);
+            var worldPosition = _mapControl.Viewport.ScreenToWorld(screenPosition.X, screenPosition.Y);
+            MousePositionInfo = $"{worldPosition.X:F2}, {worldPosition.Y:F2}";
+            RaisePropertyChanged(nameof(MousePositionInfo));
+        }
+
 
         public DelegateCommand MapTestCommand { get; set; }
 

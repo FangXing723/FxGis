@@ -5,26 +5,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:FxGis.MapsuiModule.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="45"
+    xmlns:prism="http://prismlibrary.com/"
+    x:Name="userControl"
+    prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
             <Button
                 Width="25"
                 Height="25"
+                Command="{Binding ZoomInCommand}"
                 Content="放大" />
             <Button
                 Width="25"
                 Height="25"
+                Command="{Binding ZoomOutCommand}"
                 Content="缩小" />
             <Button
                 Width="25"
                 Height="25"
+                Command="{Binding ZoomToFullCommand}"
                 Content="全局" />
-            <Button
-                Width="25"
-                Height="25"
-                Content="刷新" />
+
         </StackPanel>
     </Grid>
 </UserControl>
