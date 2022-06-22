@@ -10,5 +10,7 @@ namespace FxGis.ProjectTreeModule.Model
     public class DemData : BaseProjectData
     {
         public override ProjectDataTypeEnum DataType => ProjectDataTypeEnum.DEM;
+
+        public override string ImagePath => "/FxGis.ProjectTreeModule;component/Images/Dem.png";
     }
 }

@@ -30,13 +30,18 @@
         <ListView
             Grid.Row="1"
             Width="200"
+            Background="Transparent"
+            BorderBrush="Transparent"
             ItemsSource="{Binding LayerInfos}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding Visibility}" />
                         <TextBlock Margin="5,0,5,0" Text="{Binding LayerName}" />
-                        <TextBox BorderBrush="Transparent" Text="{Binding Opacity}" />
+                        <TextBox
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            Text="{Binding Opacity}" />
 
                         <StackPanel.ContextMenu>
                             <ContextMenu DataContext="{Binding Path=PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">

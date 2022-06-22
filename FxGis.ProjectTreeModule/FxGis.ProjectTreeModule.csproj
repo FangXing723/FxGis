@@ -81,7 +81,11 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Shp数据.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FxGis.App.Core\FxGis.App.Core.csproj">
       <Project>{c28b9266-b431-4632-8828-2e2ad37fbd7c}</Project>

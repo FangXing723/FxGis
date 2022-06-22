@@ -8,18 +8,17 @@
     xmlns:model="clr-namespace:FxGis.ProjectTreeModule.Model"
     xmlns:prism="http://prismlibrary.com/"
     x:Name="userControl"
+    Width="170"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <UserControl.Resources>
         <!--  Shp数据目录样式  -->
         <HierarchicalDataTemplate DataType="{x:Type model:BaseProjectData}">
             <StackPanel Height="20" Orientation="Horizontal">
-
-                <!--<Image
+                <Image
                     Width="16"
                     Height="16"
-                    Source="{Binding ImagePath}" />-->
-
+                    Source="{Binding ImagePath}" />
                 <TextBlock
                     Margin="5,0,0,0"
                     VerticalAlignment="Center"

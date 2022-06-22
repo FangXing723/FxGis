@@ -26,7 +26,6 @@ namespace FxGis.ProjectTreeModule.Tool
             {
                 DataName = "DEM数据",
                 DataPath = "/xxx/a.dem",
-                IsChecked = true,
             };
 
             _project.ProjectDatas.Add(dem);
@@ -40,7 +39,6 @@ namespace FxGis.ProjectTreeModule.Tool
             {
                 DataName = dataName,
                 DataPath = shpPath,
-                IsChecked = true,
             };
 
             _project.ProjectDatas.Add(shp);
@@ -48,29 +46,6 @@ namespace FxGis.ProjectTreeModule.Tool
             return shp.DataName;
         }
 
-        public string AddTile(string tileDataPath)
-        {
-            TileData tile = new TileData
-            {
-                DataName = "Tile数据",
-                DataPath = "/xxx/b.tile",
-                IsChecked = true,
-            };
-
-            _project.ProjectDatas.Add(tile);
-
-            return tile.DataName;
-        }
-
-        public string MoveDataDown(string dataName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string MoveDataUp(string dataName)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool RemoveData(string dataName)
         {

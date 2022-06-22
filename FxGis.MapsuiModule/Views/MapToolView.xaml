@@ -11,21 +11,33 @@
     mc:Ignorable="d">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Orientation="Vertical">
+            <!--<Button
+                Width="25"
+                Height="25"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                ToolTip="Zoom In"
+                Command="{Binding ZoomInCommand}">
+                <Image Source="/FxGis.MapsuiModule;component/Images/放大.png" Stretch="Fill" />
+            </Button>
             <Button
                 Width="25"
                 Height="25"
-                Command="{Binding ZoomInCommand}"
-                Content="放大" />
+                Background="Transparent"
+                BorderBrush="Transparent"
+                ToolTip="Zoom Out"
+                Command="{Binding ZoomOutCommand}">
+                <Image Source="/FxGis.MapsuiModule;component/Images/缩小.png" Stretch="Fill" />
+            </Button>-->
             <Button
                 Width="25"
                 Height="25"
-                Command="{Binding ZoomOutCommand}"
-                Content="缩小" />
-            <Button
-                Width="25"
-                Height="25"
+                Background="Transparent"
+                BorderBrush="Transparent"
                 Command="{Binding ZoomToFullCommand}"
-                Content="全局" />
+                ToolTip="Reset">
+                <Image Source="/FxGis.MapsuiModule;component/Images/复位.png" Stretch="Fill" />
+            </Button>
 
         </StackPanel>
     </Grid>

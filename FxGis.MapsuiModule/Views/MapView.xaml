@@ -20,22 +20,26 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
+
+
+        <mapsui:MapControl
+            Name="mapsuiMapControl"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3" />
+
         <ContentControl
             Grid.Row="0"
             Grid.Column="0"
             prism:RegionManager.RegionName="MapToolRegion"
             Background="Transparent" />
 
-        <mapsui:MapControl
-            Name="mapsuiMapControl"
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Grid.Column="1" />
-
         <ContentControl
             Grid.Row="0"
             Grid.Column="2"
-            prism:RegionManager.RegionName="MapTreeRegion" />
+            prism:RegionManager.RegionName="MapTreeRegion"
+            Background="Transparent" />
 
         <StackPanel
             Grid.Row="1"

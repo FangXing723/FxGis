@@ -20,20 +20,8 @@ namespace FxGis.ProjectTreeModule.Model
         /// </summary>
         public virtual string DataPath { get; set; }
 
+        public abstract string ImagePath { get;}
+
         public abstract ProjectDataTypeEnum DataType { get; }
-
-        /// <summary>
-        /// 是否勾选
-        /// </summary>
-        public virtual bool IsChecked { get; set; }
-
-        /// <summary>
-        /// IsChecked属性改变事件
-        /// </summary>
-        public event EventHandler<BaseProjectData> CheckedChanged;
-
-
-
-
     }
 }

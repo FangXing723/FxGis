@@ -10,5 +10,7 @@ namespace FxGis.ProjectTreeModule.Model
     public class TileData : BaseProjectData
     {
         public override ProjectDataTypeEnum DataType => ProjectDataTypeEnum.TILE;
+
+        public override string ImagePath => throw new NotImplementedException();
     }
 }

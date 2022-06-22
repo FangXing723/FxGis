@@ -11,6 +11,10 @@ namespace FxGis.ProjectTreeModule.Model
     {
         public const string FileFilter = "shape files(*.shp)|*.shp";
 
+        public override string ImagePath => "/FxGis.ProjectTreeModule;component/Images/Shp数据.png";
+
         public override ProjectDataTypeEnum DataType => ProjectDataTypeEnum.SHAPE;
+
+   
     }
 }
