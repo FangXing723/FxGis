@@ -19,7 +19,10 @@
             Grid.Row="0"
             Margin="5"
             Orientation="Vertical">
-            <ComboBox ItemsSource="{Binding TileLayers}" SelectedItem="{Binding SelectedTileLayer}" />
+            <ComboBox
+                Margin="0,0,0,2"
+                ItemsSource="{Binding TileLayers}"
+                SelectedItem="{Binding SelectedTileLayer}" />
             <Button Command="{Binding AddTileCommand}" Content="Add Tile" />
         </StackPanel>
 

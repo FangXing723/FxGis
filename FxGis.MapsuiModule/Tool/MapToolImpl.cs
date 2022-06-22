@@ -162,17 +162,6 @@ namespace FxGis.MapsuiModule.Tool
         }
 
 
-
-
-        public void SetLayerVisiblity(string layerName, bool visibility)
-        {
-            ILayer layer = GetLayer(layerName);
-            if (layer != null)
-            {
-                layer.Enabled = visibility;
-            }
-        }
-
         public void ZoomToLayer(string layerName)
         {
             ILayer layer = GetLayer(layerName);

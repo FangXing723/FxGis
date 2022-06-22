@@ -17,8 +17,6 @@ namespace FxGis.App.Core.Tool
 
         bool RemoveLayer(string layerName);
 
-        void SetLayerVisiblity(string layerName, bool visibility);
-
         int GetLayerIndex(string layerName);
 
         void MoveLayerUp(string layerName);
